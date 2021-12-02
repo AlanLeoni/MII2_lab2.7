@@ -36,7 +36,7 @@ def crea_riga(red: int, green: int) -> Image:
     """
     elementi_riga = [
         crea_quadratino(red, green, blue)
-        for blue in range(0, 255, PASSO)
+        for blue in range(0, 256, PASSO)
         ]
     return affianca_molte(elementi_riga)
 
@@ -51,7 +51,7 @@ def crea_quadrato(red: int) -> Image:
     """
     img_prec = immagine_vuota()
     
-    for green in range(0, 255, PASSO):
+    for green in range(0, 256, PASSO):
         quadrato = affianca_verticale(img_prec, crea_riga(red, green))
         img_prec = quadrato
     return quadrato
@@ -60,7 +60,7 @@ def crea_quadrato(red: int) -> Image:
 def crea_quadrato_animato():
     sequenza_quadrati = [
         crea_quadrato(red)
-        for red in range(0, 255, PASSO)
+        for red in range(0, 256, PASSO)
     ]
     return crea_gif("quadrato_animato", sequenza_quadrati)
  
